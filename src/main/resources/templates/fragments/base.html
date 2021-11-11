@@ -9,22 +9,49 @@ xmlns:th="http://www.thymeleaf.org">
         <link th:rel="stylesheet" th:href="@{/css/base.css}">
     </th:block>
     <meta charset="UTF-8">
-    <title>National Health Clinic</title>
+    <title>Asian Health Clinic</title>
 </head>
 <body>
+<nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-light  bg-primary  border border-light ">
+    <a class="navbar-brand" th:href="@{/}"><h2 class="text-light" >Asian Health Clinic</h2></a>
+    <button class="navbar-toggler" type="button"  data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon "></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mr-auto" >
+            <li class="nav-item"><a class="nav-link text-light" th:href="@{/}">Home</a></li>
+        </ul>
+
+        <ul class="navbar-nav mr-auto" >
+            <li class="nav-item"><a class="nav-link text-light" th:href="@{/}">Book Appointment</a></li>
+        </ul>
+
+        <ul class="navbar-nav mr-auto" >
+            <li class="nav-item"><a class="nav-link text-light" th:href="@{/}">Patient list</a></li>
+        </ul>
+
+
+    </div>
+</nav>
+
+
 <div th:fragment="header">
     <div class="container-fluid">
         <div class="row justify-content-center mt-3 mb-3">
-            <div class="col-6 col-md-3" >
-                <h3 class="text-center">Patient Appointment System</h3>
+            <div class="col-12 text-center" >
+                <h3>Patient Appointment System</h3>
             </div>
         </div>
 
+        <div class="img-fluid">
         <div class="row justify-content-center">
-            <div class="col-8 col-md-3 text-center">
+            <div class="col-12 text-center" >
                 <img id="img" th:src="@{/images/image.jpg}"/>
                 </div>
             </div>
+        </div>
 
 
 
@@ -32,9 +59,12 @@ xmlns:th="http://www.thymeleaf.org">
 
 </div>
 
-<div th:fragment="footer">
-    Jestin Jose@ Copyright 2021
-</div>
+<footer class="footer bg-primary" th:fragment="footer">
+    <div class="container text-center">
+        <span class="text-light ">Jestin Jose@ Copyright 2021</span>
+    </div>
+
+</footer>
 
 </body>
 <th:block th:fragment="scripts">

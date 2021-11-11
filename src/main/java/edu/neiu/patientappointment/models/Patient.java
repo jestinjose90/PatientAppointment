@@ -10,6 +10,15 @@ public class Patient {
     private String physician_name;
 
 
+    public Patient() {
+        this.firstname = "";
+        this.lastname = "";
+        this.dateofbirth = "";
+        this.dateofAppointment = "";
+        this.physician_name = "";
+
+}
+
     public Patient(String firstname, String lastname, String dateofbirth , String dateofAppointment, String physician_name){
         this.firstname = firstname;
         this.lastname = lastname;

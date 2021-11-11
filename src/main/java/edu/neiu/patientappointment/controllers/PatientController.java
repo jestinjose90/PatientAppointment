@@ -14,13 +14,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class PatientController {
     @GetMapping
     public  String addPatient(Model model) {
-        model.addAttribute("patient",new Patient());
+        model.addAttribute("patient", new Patient());
         return "add-patient";
     }
 
-    @PostMapping
-    public String handlePatientForm(@ModelAttribute("patient") Patient patient , RedirectAttributes attr) {
-        attr.addFlashAttribute("firstname",patient.getFirstname());
-        
-    }
+
 }

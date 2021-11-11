@@ -8,7 +8,10 @@ xmlns:th="http://www.thymeleaf.org">
 <body>
 <div th:replace="fragments/base :: header"></div>
 
+<form th:action="@{/addPatient}" th:object="${patient}" method="post">
 
+
+</form>
 
 
 

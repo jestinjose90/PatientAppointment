@@ -6,19 +6,17 @@ public class Patient {
     private String firstname;
     private String lastname;
     private String dateofbirth;
-    private String address;
-    private String insuranceprovider;
+    private String dateofAppointment;
     private String physician_name;
-    private String purpose;
 
-    public Patient(String firstname, String lastname, String dateofbirth , String address, String insuranceprovider, String physician_name, String purpose) {
+
+    public Patient(String firstname, String lastname, String dateofbirth , String dateofAppointment, String physician_name){
         this.firstname = firstname;
         this.lastname = lastname;
         this.dateofbirth = dateofbirth;
-        this.address = address;
-        this.insuranceprovider = insuranceprovider;
+        this.dateofAppointment = dateofAppointment;
         this.physician_name = physician_name;
-        this.purpose = purpose;
+
     }
 
     public String getFirstname() {
@@ -45,20 +43,12 @@ public class Patient {
         this.dateofbirth = dateofbirth;
     }
 
-    public String getAddress() {
-        return address;
+    public String getDateofAppointment() {
+        return dateofAppointment;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getInsuranceprovider() {
-        return insuranceprovider;
-    }
-
-    public void setInsuranceprovider(String insuranceprovider) {
-        this.insuranceprovider = insuranceprovider;
+    public void setDateofAppointment(String dateofAppointment) {
+        this.dateofAppointment = dateofAppointment;
     }
 
     public String getPhysician_name() {
@@ -69,12 +59,6 @@ public class Patient {
         this.physician_name = physician_name;
     }
 
-    public String getPurpose() {
-        return purpose;
-    }
 
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
-    }
 
 }

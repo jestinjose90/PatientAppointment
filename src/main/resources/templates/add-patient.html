@@ -7,10 +7,58 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 <body>
 <div th:replace="fragments/base :: navigation"></div>
-<h2 class="text-center">Patient Appointment System</h2>
+<div class="container-fluid">
+    <div class="row justify-content-center mt-3 mb-3">
+        <div class="col-10 text-center" >
+            <h3>Patient Appointment System</h3>
+        </div>
+    </div>
+</div>
 
 <form th:action="@{/addPatient}" th:object="${patient}" method="post">
+    <div class="container-fluid">
+    <div class="form-group row justify-content-center ">
+        <div class="col-6  mt-1 mb-1">
+            <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
+            <input type="text" id="firstName">
+        </div>
+    </div>
 
+    <div class="form-group row justify-content-center ">
+        <div class="col-6 mb-3">
+            <label for="LastName" class="col-sm-3 col-form-label">Last Name</label>
+            <input type="text" id="LastName">
+        </div>
+    </div>
+
+    <div class="form-group row justify-content-center ">
+        <div class="col-6 mb-3" >
+            <label for="D.O.A" class="col-sm-3 col-form-label">Date-Of-Birth</label>
+            <input type="text" id="D.O.A">
+        </div>
+    </div>
+
+    <div class="form-group row justify-content-center ">
+        <div class="col-6 mb-3" >
+            <label for="D.O.C" class="col-sm-3 col-form-label">Date-of-Appointment</label>
+            <input type="text" id="D.O.C">
+        </div>
+    </div>
+
+
+    <div class="form-group row justify-content-center ">
+        <div class="col-6 mb-3" >
+            <label for="D.O.D" class="col-sm-3 col-form-label">Physician Name</label>
+            <input type="text" id="D.O.D">
+        </div>
+    </div>
+
+        <div class="row justify-content-center mt-1">
+            <div class="col-2">
+                <input class="btn btn-light btn-outline-dark" type="submit" value="Add">
+            </div>
+    </div>
+    </div>
 
 </form>
 

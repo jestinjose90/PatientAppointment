@@ -20,36 +20,36 @@ xmlns:th="http://www.thymeleaf.org">
     <div class="form-group row justify-content-center ">
         <div class="col-6  mt-1 mb-1">
             <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
-            <input type="text" id="firstName">
+            <input type="text" id="firstName" th:field="*{firstname}">
         </div>
     </div>
 
     <div class="form-group row justify-content-center ">
         <div class="col-6 mb-3">
             <label for="LastName" class="col-sm-3 col-form-label">Last Name</label>
-            <input type="text" id="LastName">
+            <input type="text" id="LastName" th:field="*{lastname}">
         </div>
     </div>
 
     <div class="form-group row justify-content-center ">
         <div class="col-6 mb-3" >
             <label for="D.O.A" class="col-sm-3 col-form-label">Date-Of-Birth</label>
-            <input type="text" id="D.O.A">
+            <input type="text" id="D.O.A" th:field="*{dateofbirth}">
         </div>
     </div>
 
     <div class="form-group row justify-content-center ">
         <div class="col-6 mb-3" >
-            <label for="D.O.C" class="col-sm-3 col-form-label">Date-of-Appointment</label>
-            <input type="text" id="D.O.C">
+            <label for="D.O.C" class="col-sm-3 col-form-label">Email</label>
+            <input type="text" id="D.O.C" th:field="*{email}">
         </div>
     </div>
 
 
     <div class="form-group row justify-content-center ">
         <div class="col-6 mb-3" >
-            <label for="D.O.D" class="col-sm-3 col-form-label">Physician Name</label>
-            <input type="text" id="D.O.D">
+            <label for="D.O.D" class="col-sm-3 col-form-label">Phone Number</label>
+            <input type="text" id="D.O.D" th:field="*{phone}">
         </div>
     </div>
 

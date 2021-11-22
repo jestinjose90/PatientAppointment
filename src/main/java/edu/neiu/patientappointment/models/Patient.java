@@ -1,20 +1,33 @@
 package edu.neiu.patientappointment.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.format.annotation.NumberFormat;
+
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Patient {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+
+    @NotBlank(message = "First name is required")
     private String firstname;
+    @NotBlank(message = "Last name is required")
     private String lastname;
+    @NotBlank(message = "DateofBirth is required")
     private String dateofbirth;
+    @NotBlank(message = "Email is required")
+    @Column(unique = true, length = 100)
+    @Email(message = "Must be a valid email address")
     private String email;
+    @NotBlank(message = "Phone number is required")
+    @NumberFormat
     private String phone;
 
 
@@ -34,6 +47,14 @@ public class Patient {
         this.email = email;
         this.phone= phone;
 
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getFirstname() {
@@ -78,9 +99,6 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" +
-                "firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                '}';
+        return  this.firstname + " " + this.lastname;
     }
 }

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert ="fragments/base :: headAttributes"></th:block>
+    <title>View Patient</title>
+</head>
+<body>
+
+    <div th:replace="fragments/base :: navigation"></div>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <h3 class="text-center col-12">View Patient Details</h3>
+    </div>
+</div>
+
+    <form th:action="@{/addPatient/view/{id}(id=${patient.id})}" th:object="${patient}" method="post">
+        <div class="container-fluid">
+            <div class="form-group row justify-content-center ">
+                <div class="col-6  mt-1 mb-1">
+                    <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
+                    <input type="text" id="firstName" th:field="*{firstname}">
+
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-5 col-md-3">
+                <span class="text-danger small" th:if="${#fields.hasErrors('firstname')}"
+                      th:errors="*{firstname}"></span>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-6 mb-3">
+                    <label for="LastName" class="col-sm-3 col-form-label">Last Name</label>
+                    <input type="text" id="LastName" th:field="*{lastname}">
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-5 col-md-3">
+                <span class="text-danger small" th:if="${#fields.hasErrors('lastname')}"
+                      th:errors="*{lastname}"></span>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-6 mb-3" >
+                    <label for="D.O.A" class="col-sm-3 col-form-label">Date-Of-Birth</label>
+                    <input type="text" id="D.O.A" th:field="*{dateofbirth}">
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-5 col-md-3">
+                <span class="text-danger small" th:if="${#fields.hasErrors('dateofbirth')}"
+                      th:errors="*{dateofbirth}"></span>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-6 mb-3" >
+                    <label for="D.O.C" class="col-sm-3 col-form-label">Email</label>
+                    <input type="text" id="D.O.C" th:field="*{email}">
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-5 col-md-3">
+                <span class="text-danger small" th:if="${#fields.hasErrors('email')}"
+                      th:errors="*{email}"></span>
+                </div>
+            </div>
+
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-6 mb-3" >
+                    <label for="D.O.D" class="col-sm-3 col-form-label">Phone Number</label>
+                    <input type="text" id="D.O.D" th:field="*{phone}">
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-5 col-md-3">
+                <span class="text-danger small" th:if="${#fields.hasErrors('phone')}"
+                      th:errors="*{phone}"></span>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-1">
+                <div class="col-2">
+                    <input class="btn btn-light btn-outline-dark" type="submit" value="Add">
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+<div th:replace="fragments/base :: footer"></div>
+</body>
+
+<th:block th:replace="fragments/base :: scripts"></th:block>
+</html>

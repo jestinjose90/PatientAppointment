@@ -6,27 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-
 @Controller
-@RequestMapping("/display")
+@RequestMapping("/view")
+public class ViewPatientController {
 
 
-public class ViewPatientsController {
-
-    private PatientRepository patientrepo;
+    private PatientRepository patientRepo;
 
     @Autowired
-    public ViewPatientsController(PatientRepository patientrepo){
-        this.patientrepo = patientrepo;
+    public  ViewPatientController(PatientRepository patientRepo){
+        this.patientRepo = patientRepo;
     }
 
     @GetMapping
     public String displayPatient(Model model) {
-        List<Patient> patients = (List<Patient>) this.patientrepo.findAll();
+        List<Patient> patients = (List<Patient>) this.patientRepo.findAll();
         model.addAttribute("patients",patients);
         return "display-patients";
     }

@@ -6,6 +6,8 @@ xmlns:th="http://www.thymeleaf.org">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
         <link  th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
+        <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.2/css/all.min.css}">
+        <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.2/css/fontawesome.min.css}">
         <link th:rel="stylesheet" th:href="@{/css/base.css}">
     </th:block>
     <meta charset="UTF-8">
@@ -31,7 +33,7 @@ xmlns:th="http://www.thymeleaf.org">
         </ul>
 
         <ul class="navbar-nav mr-auto" >
-            <li class="nav-item"><a class="nav-link text-light" th:classappend="${#request.getServletPath() == '/' ? 'active': ''}" th:href="@{/addPatient}">Patient list</a></li>
+            <li class="nav-item"><a class="nav-link text-light" th:classappend="${#request.getServletPath() == '/view' ? 'active': ''}" th:href="@{/view}">Patient list</a></li>
         </ul>
 
 

@@ -11,29 +11,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+
 @Controller
-@RequestMapping("/view")
-public class ViewPatientController {
-
-
-    private PatientRepository patientRepo;
-
-
-
+@RequestMapping("/display-availability")
+public class ViewAvailabilityController {
+    private AvailabilityRepository availableRepo;
 
     @Autowired
-    public ViewPatientController(PatientRepository patientRepo) {
-        this.patientRepo = patientRepo;
+    public  ViewAvailabilityController(AvailabilityRepository availableRepo){
 
+        this.availableRepo = availableRepo;
     }
 
     @GetMapping
-    public String displayPatient(Model model) {
-        List<Patient> eachpatients = (List<Patient>) this.patientRepo.findAll();
-        model.addAttribute("patient", eachpatients);
-
-
-        return "display-patients";
+    public String ViewAvailability(Model model) {
+        List<Availability> availableList = (List<Availability>) this.availableRepo.findAll();
+        model.addAttribute("available",availableList);
+        return "display-availability";
     }
 
 }

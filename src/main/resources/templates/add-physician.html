@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert ="fragments/base :: headAttributes"></th:block>
+    <title>Add Physician</title>
+</head>
+<body>
+<div th:replace="fragments/base :: navigation"></div>
+
+<div class="row justify-content-center mt-3 mb-3">
+    <div class="col-10 text-center" >
+        <h3>Add Physician</h3>
+    </div>
+</div>
+
+<form th:action="@{addPhysician}" th:object="${physician}" method="post">
+    <div class="container-fluid mt-5 mb-3">
+        <div class="row justify-content-center">
+            <div class="col-8 col-md-3">
+
+                <label for="firstname" class="col-form-label"> First Name</label>
+                <input class="form-control" id="firstname" type="text"
+                       th:field="*{firstname}" required/>
+
+            </div>
+
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-5 col-md-3">
+                <span class="text-danger small" th:if="${#fields.hasErrors('firstname')}"
+                      th:errors="*{firstname}"></span>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center ">
+                <div class="col-8 col-md-3">
+
+                    <label for="lastname" class="col-form-label">Last Name </label>
+                    <input class="form-control" id="lastname" type="text"
+                           th:field="*{lastname}"  required/>
+
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-5 col-md-3">
+                <span class="text-danger small" th:if="${#fields.hasErrors('lastname')}"
+                      th:errors="*{lastname}"></span>
+                </div>
+            </div>
+
+            <div class="row justify-content-center ">
+                <div class="col-8 col-md-3">
+
+                    <label for="speciality" class="col-form-label">Speciality </label>
+                    <input class="form-control" id="speciality" type="text"
+                           th:field="*{speciality}" required/>
+
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-5 col-md-3">
+                <span class="text-danger small" th:if="${#fields.hasErrors('speciality')}"
+                      th:errors="*{speciality}"></span>
+                </div>
+            </div>
+
+            <div class="row justify-content-center ">
+                <div class="col-8 col-md-3">
+
+                    <label for="email" class="col-form-label">Email </label>
+                    <input class="form-control" id="email" type="email"
+                           th:field="*{email}" required/>
+
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-5 col-md-3">
+                <span class="text-danger small" th:if="${#fields.hasErrors('email')}"
+                      th:errors="*{email}"></span>
+                </div>
+            </div>
+
+            <div class="row justify-content-center ">
+                <div class="col-8 col-md-3">
+
+                    <label for="phone" class="col-form-label">Phone Number </label>
+                    <input class="form-control" id="phone" type="tel"
+                        th:name="phone" th:field="*{phone}" required/>
+
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center ">
+                <div class="col-5 col-md-3">
+                <span class="text-danger small" th:if="${#fields.hasErrors('phone')}"
+                      th:errors="*{phone}"></span>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center mt-3">
+                <div class="col-8 col-md-3">
+                    <select class="form-select" name="availability" id="time">
+                        <option th:each="values: ${physician_available}"
+                                th:value="${values.id}"
+                                th:text="${values}"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+            <div class="row justify-content-center mt-3 mb-3">
+                <div class="col-2">
+                    <input class="btn btn-light btn-outline-dark" type="submit" value="Add">
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</form>
+
+<div th:replace="fragments/base :: footer"></div>
+</body>
+<th:block th:replace="fragments/base :: scripts"></th:block>
+</html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
-xmlns:th="http://www.thymeleaf.org">
+xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <th:block th:fragment="headAttributes">
         <meta charset="UTF-8">
@@ -29,12 +30,39 @@ xmlns:th="http://www.thymeleaf.org">
 
         <ul class="navbar-nav mr-auto" >
             <li class="nav-item" >
-                <a class="nav-link text-light"  th:classappend="${#request.getServletPath() == '/addPatient' ? 'active': ''}"  th:href="@{/addPatient}">Book Appointment</a></li>
+                <a class="nav-link text-light"  th:classappend="${#request.getServletPath() == '/addPatient' ? 'active': ''}"
+                   sec:authorize="hasAnyRole('ADMIN','USER')" th:href="@{/addPatient}">Book Appointment</a></li>
         </ul>
 
         <ul class="navbar-nav mr-auto" >
-            <li class="nav-item"><a class="nav-link text-light" th:classappend="${#request.getServletPath() == '/view' ? 'active': ''}" th:href="@{/view}">Patient list</a></li>
+            <li class="nav-item"><a class="nav-link text-light" th:classappend="${#request.getServletPath() == '/view' ? 'active': ''}"
+                                    sec:authorize="hasRole('ADMIN')"  th:href="@{/view}">Patient list</a></li>
         </ul>
+
+        <ul class="navbar-nav mr-auto" >
+            <li class="nav-item"><a class="nav-link text-light" th:classappend="${#request.getServletPath() == '/display' ? 'active': ''}"
+                                    sec:authorize="hasRole('USER')" th:href="@{/display}">Patient list</a></li>
+        </ul>
+
+        <ul class="navbar-nav mr-auto" >
+            <li class="nav-item"><a class="nav-link text-light" th:classappend="${#request.getServletPath() == '/add' ? 'active': ''}"
+                                    sec:authorize="hasRole('ADMIN')"  th:href="@{/add}">Add Availability</a></li>
+        </ul>
+
+
+        <ul class="navbar-nav mr-auto" >
+            <li class="nav-item"><a class="nav-link text-light" th:classappend="${#request.getServletPath() == '/addPhysician/view' ? 'active': ''}"
+                                    sec:authorize="hasRole('ADMIN')"  th:href="@{/addPhysician/view}">Physician List</a></li>
+        </ul>
+
+        <ul class="navbar-nav mr-auto " >
+            <li class="nav-item">
+                <span class=" fas fa-user fa-1x icon-silver nav-link text-light" sec:authorize="isAuthenticated()"  th:text= "${#request.remoteUser}"> </span></li>
+        </ul>
+
+        <a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="btn btn-primary text-light justify-content-end">Logout</a>
+
+    </div>
 
 
     </div>

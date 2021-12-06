@@ -1,16 +1,16 @@
 package edu.neiu.patientappointment.models;
 
-import org.hibernate.engine.profile.Fetch;
-import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
+import javax.persistence.ManyToMany;
+
 
 @Entity
-public class Patient {
+public class Physician {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -20,48 +20,50 @@ public class Patient {
     private String firstname;
     @NotBlank(message = "Last name is required")
     private String lastname;
-    @NotBlank(message = "DateofBirth is required")
-    private String dateofbirth;
+    @NotBlank(message = "Speciality is required")
+    private String speciality;
     @NotBlank(message = "Email is required")
     @Column(unique = true, length = 100)
     @Email(message = "Must be a valid email address")
     private String email;
     @NotBlank(message = "Phone number is required")
     private String phone;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "appointment_id", referencedColumnName = "id")
-    private  Availability  availability;
+
+    @ManyToMany
+    private Set<Availability> appointment;
 
 
 
 
-
-    public Patient() {
+    public Physician () {
         this.firstname = "";
         this.lastname = "";
-        this.dateofbirth = "";
+        this.speciality = "";
         this.email= "";
         this.phone = "";
 
+    }
 
-}
-
-    public Patient(String firstname, String lastname, String dateofbirth , String email, String phone, Availability availability){
+    public Physician(String firstname, String lastname, String speciality , String email, String phone ){
         this.firstname = firstname;
         this.lastname = lastname;
-        this.dateofbirth = dateofbirth;
+        this.speciality = speciality;
         this.email = email;
         this.phone= phone;
-        this.availability = availability;
+
+
 
     }
 
-    public Availability getAvailability() {
-        return availability;
+
+
+
+    public Set<Availability> getAppointment() {
+        return appointment;
     }
 
-    public void setAvailability(Availability availability) {
-        this.availability = availability;
+    public void setAppointment(Set<Availability> appointment) {
+        this.appointment = appointment;
     }
 
     public long getId() {
@@ -88,12 +90,12 @@ public class Patient {
         this.lastname = lastname;
     }
 
-    public String getDateofbirth() {
-        return dateofbirth;
+    public String getSpeciality() {
+        return speciality;
     }
 
-    public void setDateofbirth(String dateofbirth) {
-        this.dateofbirth = dateofbirth;
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
     public String getEmail() {
@@ -112,8 +114,21 @@ public class Patient {
         this.phone = phone;
     }
 
+
+
     @Override
     public String toString() {
-        return  this.firstname + " " + this.lastname;
+        return  this.firstname + " " + this.lastname + " " + this.speciality+ " " + this.email + " "
+                + this.phone;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Physician))
+            return false;
+     Physician p = (Physician) o;
+        return this.phone.equals(p.phone) && this.appointment.equals(p.appointment) && this.email.equals(p.email)
+                && this.speciality.equals(p.speciality);
+    }
+
 }

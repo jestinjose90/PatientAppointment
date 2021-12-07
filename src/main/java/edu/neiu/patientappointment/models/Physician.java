@@ -44,7 +44,7 @@ public class Physician {
 
     }
 
-    public Physician(String firstname, String lastname, String speciality , String email, String phone ){
+    public Physician(String firstname, String lastname, String speciality , String email, String phone){
         this.firstname = firstname;
         this.lastname = lastname;
         this.speciality = speciality;

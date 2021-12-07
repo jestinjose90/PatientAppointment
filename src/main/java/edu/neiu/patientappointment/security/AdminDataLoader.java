@@ -22,11 +22,11 @@ public class AdminDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-     //   User admin1 = new User("jsw123@gmail.com","john",passwordEncoder.encode("pass"),"John",
-            //    "Orlando");
-     //  admin1.setRoles(Set.of(User.Role.ROLE_ADMIN));
-     //   admin1.setEnabled(true);
-     //   userRepo.save(admin1);
+       //User admin1 = new User("jsw123@gmail.com","john",passwordEncoder.encode("pass"),"John",
+             //  "Orlando");
+       //admin1.setRoles(Set.of(User.Role.ROLE_ADMIN));
+       //admin1.setEnabled(true);
+       // userRepo.save(admin1);
 
 
        // User admin2 = new User("bmc123@gmail.com","Bill",passwordEncoder.encode("password"),"Bill", "Arnold");

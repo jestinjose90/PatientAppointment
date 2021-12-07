@@ -12,4 +12,4 @@
 #Database Credentials
 #DB_NAME=FL21CS3211_fjestinjose;PASSWORD=fjestinjose678022;USERNAME=FL21CS3211_fjestinjose
 
-#Heroku URl
+#Heroku URl: https://asianhealthclinic.herokuapp.com/

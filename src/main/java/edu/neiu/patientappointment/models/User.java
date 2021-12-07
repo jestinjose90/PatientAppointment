@@ -22,7 +22,7 @@ public class User implements UserDetails {
     private String email;
 
     @NotBlank(message = "Username is required")
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, length = 100,nullable = false)
     private String username;
 
     @Column(nullable = false)

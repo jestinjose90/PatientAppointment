@@ -1,6 +1,6 @@
-#Title : Asian Health Clinic
+#Title : Patient Appointment
 #Summary
-#The name of my web application is Asian Health Clinic .  I thought of creating a Patient appointment system to simulate the functions performed by everyone in a clinic. This application focuses  on creating appointments for patients. Users are employees that work in Asian Clinic . Admin has more privileges than users . The Home Page would allow user/ admin to login if they register by creating an account or are already a registered member .
+#Created a Patient appointment system to simulate the functions performed in a clinic. This application focuses  on creating appointments for patients. Users are employees that work in Asian Clinic . Admin has more privileges than users . The Home Page would allow user/ admin to login if they register by creating an account or are already a registered member .
 #A User will be able to add patients and they can add appointment schedules   for each patient . Patient data added will be  displayed  in another page where the user can view , edit, or delete .An admin can do the functions of users and in addition can insert the availability schedule . He/she can add , edit, or remove physicians’ data  from clinic application  and add their available hours.
 
 #Design Specifications
